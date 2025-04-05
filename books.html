@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anwachin School - Books Marketplace</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f9ff;
+            color: #333;
+        }
+        .header {
+            background-color: #2563eb;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #2563eb;
+            border-bottom: 2px solid #2563eb;
+            padding-bottom: 10px;
+        }
+        .class-container {
+            margin-bottom: 30px;
+        }
+        .class-header {
+            font-size: 1.3em;
+            color: #1e40af;
+            margin: 20px 0 10px 0;
+        }
+        .class-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .class-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .class-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .class-card h3 {
+            margin-top: 0;
+            color: #1e40af;
+            font-size: 1.1em;
+        }
+        .stream-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .stream-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .back-link {
+            display: inline-block;
+            margin: 10px 0;
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Anwachin School Books Marketplace</h1>
+    </div>
+    
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        
+        <h2>Browse Books by Class</h2>
+        
+        <!-- Classes 1-10 -->
+        <div class="class-container">
+            <div class="class-header">Classes 1st to 10th</div>
+            
+            <!-- First Row (Classes 1-5) -->
+            <div class="class-grid">
+                <div class="class-card">
+                    <h3>Class 1st</h3>
+                    <a href="books-class1.html">View Books</a>
+                </div>
+                <div class="class-card">
+                    <h3>Class 2nd</h3>
+                    <a href="books-class2.html">View Books</a>
+                </div>
+                <div class="class-card">
+                    <h3>Class 3rd</h3>
+                    <a href="books-class3.html">View Books</a>
+                </div>
+                <div class="class-card">
+                    <h3>Class 4th</h3>
+                    <a href="books-class4.html">View Books</a>
+                </div>
+                <div class="class-card">
+                    <h3>Class 5th</h3>
+                    <a href="books-class5.html">View Books</a>
+                </div>
+            </div>
+            
+            <!-- Second Row (Classes 6-10) -->
+            <div class="class-grid">
+                <div class="class-card">
+                    <h3>Class 6th</h3>
+                    <a href="books-class6.html">View Books</a>
+                </div>
+                <div class="class-card">
+                    <h3>Class 7th</h3>
+                    <a href="books-class7.html">View Books</a>
+                </div>
+                <div class="class-card">
+                    <h3>Class 8th</h3>
+                    <a href="books-class8.html">View Books</a>
+                </div>
+                <div class="class-card">
+                    <h3>Class 9th</h3>
+                    <a href="books-class9.html">View Books</a>
+                </div>
+                <div class="class-card">
+                    <h3>Class 10th</h3>
+                    <a href="books-class10.html">View Books</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Class 11 -->
+        <div class="class-container">
+            <div class="class-header">Class 11</div>
+            <div class="stream-options">
+                <div class="stream-card">
+                    <h3>Science</h3>
+                    <ul>
+                        <li><a href="books-class11-physics.html">Physics</a></li>
+                        <li><a href="books-class11-chemistry.html">Chemistry</a></li>
+                        <li><a href="books-class11-maths.html">Mathematics</a></li>
+                        <li><a href="books-class11-biology.html">Biology</a></li>
+                    </ul>
+                </div>
+                <div class="stream-card">
+                    <h3>Commerce</h3>
+                    <ul>
+                        <li><a href="books-class11-accounts.html">Accountancy</a></li>
+                        <li><a href="books-class11-business.html">Business Studies</a></li>
+                        <li><a href="books-class11-economics.html">Economics</a></li>
+                    </ul>
+                </div>
+                <div class="stream-card">
+                    <h3>Arts</h3>
+                    <ul>
+                        <li><a href="books-class11-history.html">History</a></li>
+                        <li><a href="books-class11-political.html">Political Science</a></li>
+                        <li><a href="books-class11-geography.html">Geography</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Class 12 -->
+        <div class="class-container">
+            <div class="class-header">Class 12</div>
+            <div class="stream-options">
+                <div class="stream-card">
+                    <h3>Science</h3>
+                    <ul>
+                        <li><a href="books-class12-physics.html">Physics</a></li>
+                        <li><a href="books-class12-chemistry.html">Chemistry</a></li>
+                        <li><a href="books-class12-maths.html">Mathematics</a></li>
+                        <li><a href="books-class12-biology.html">Biology</a></li>
+                    </ul>
+                </div>
+                <div class="stream-card">
+                    <h3>Commerce</h3>
+                    <ul>
+                        <li><a href="books-class12-accounts.html">Accountancy</a></li>
+                        <li><a href="books-class12-business.html">Business Studies</a></li>
+                        <li><a href="books-class12-economics.html">Economics</a></li>
+                    </ul>
+                </div>
+                <div class="stream-card">
+                    <h3>Arts</h3>
+                    <ul>
+                        <li><a href="books-class12-history.html">History</a></li>
+                        <li><a href="books-class12-political.html">Political Science</a></li>
+                        <li><a href="books-class12-geography.html">Geography</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
