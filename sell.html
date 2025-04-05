@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell Items - Anwachin School</title>
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            background-color: #2563eb;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #1e40af;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Sell Your School Items</h2>
+        <form id="sellerForm">
+            <div class="form-group">
+                <label for="itemType">Item Type:</label>
+                <select id="itemType" required>
+                    <option value="">Select...</option>
+                    <option value="book">Book</option>
+                    <option value="uniform">Uniform</option>
+                    <option value="stationery">Stationery</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="classGroup">
+                <label for="class">Class:</label>
+                <select id="class" required>
+                    <option value="">Select Class</option>
+                    <% for(let i=1; i<=12; i++) { %>
+                        <option value="class<%= i %>">Class <%= i %></option>
+                    <% } %>
+                </select>
+            </div>
+
+            <div class="form-group" id="subjectGroup" style="display:none;">
+                <label for="subject">Subject/Stream:</label>
+                <select id="subject">
+                    <option value="">Select Subject</option>
+                    <!-- Options will be added by JavaScript -->
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Item Title:</label>
+                <input type="text" id="title" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price (₹):</label>
+                <input type="number" id="price" required>
+            </div>
+
+            <div class="form-group">
+                <label for="photos">Upload Photos (Max 3):</label>
+                <input type="file" id="photos" multiple accept="image/*">
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Your Contact (WhatsApp):</label>
+                <input type="tel" id="contact" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Listing</button>
+        </form>
+    </div>
+
+    <script>
+        // Dynamic subject/stream selection
+        document.getElementById('itemType').addEventListener('change', function() {
+            const itemType = this.value;
+            const subjectGroup = document.getElementById('subjectGroup');
+            const subjectSelect = document.getElementById('subject');
+            
+            subjectGroup.style.display = itemType === 'book' ? 'block' : 'none';
+            
+            if(itemType === 'book') {
+                // Clear previous options
+                subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+                
+                // Add subjects based on class
+                const classValue = document.getElementById('class').value;
+                if(classValue.match(/class(11|12)/)) {
+                    // Senior classes - streams
+                    const streams = {
+                        'science': ['Physics', 'Chemistry', 'Mathematics', 'Biology'],
+                        'commerce': ['Accountancy', 'Business Studies', 'Economics'],
+                        'arts': ['History', 'Political Science', 'Geography']
+                    };
+                    
+                    for(const stream in streams) {
+                        const optgroup = document.createElement('optgroup');
+                        optgroup.label = stream.charAt(0).toUpperCase() + stream.slice(1);
+                        streams[stream].forEach(subject => {
+                            const option = document.createElement('option');
+                            option.value = subject.toLowerCase().replace(' ', '-');
+                            option.textContent = subject;
+                            optgroup.appendChild(option);
+                        });
+                        subjectSelect.appendChild(optgroup);
+                    }
+                } else {
+                    // Junior classes - standard subjects
+                    const subjects = ['Mathematics', 'Science', 'Social Studies', 'English', 'Hindi'];
+                    subjects.forEach(subject => {
+                        const option = document.createElement('option');
+                        option.value = subject.toLowerCase().replace(' ', '-');
+                        option.textContent = subject;
+                        subjectSelect.appendChild(option);
+                    });
+                }
+            }
+        });
+
+        // Form submission
+        document.getElementById('sellerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Here you would normally send data to a server
+            // For now, we'll just show a confirmation
+            alert('Your listing has been submitted! We\'ll contact you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
